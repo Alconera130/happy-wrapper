@@ -6,7 +6,9 @@ A User friendly It'sHappy API Wrapper for Node JS
 > ``` npm i happy-wrapper ```
 
 ## Setup
-> ``` const happy = require('happy-wrapper') ```
+```js 
+const happy = require('happy-wrapper') 
+```
 
 ## End Points
 
