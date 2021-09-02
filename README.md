@@ -51,7 +51,7 @@ buffer.then(function (data) {
 
 > Image End Points are not working sometimes, what to do?
 
-Be cautios on what links you put in the function! Or if nothing happens, Open an issue in our GitHub.
+Be cautious on what links you put in the function! Or if nothing happens, Open an issue in our GitHub.
 
 Or if you know how to fix, simply fork our project, make the changes, and open a pull request.
 
