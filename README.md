@@ -1,13 +1,15 @@
 # happy-wrapper
 
-A User friendly It'sHappy API Wrapper for Node JS
+A *User friendly* It'sHappy API Wrapper for Node JS
 
 ## Installation
-> ``` npm i happy-wrapper ```
+``` 
+npm i happy-wrapper 
+```
 
 ## Setup
-```js 
-const happy = require('happy-wrapper') 
+```js
+const happy = require('happy-wrapper')
 ```
 
 ## End Points
