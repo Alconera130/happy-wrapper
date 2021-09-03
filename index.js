@@ -31,8 +31,8 @@ module.exports.elmo = async function (message1, message2) {
     if (!message1) throw new Error("API Error: Too few arguments for 'elmo'")
     if (!message2) throw new Error("API Error: Too few arguments for 'elmo'")
 
-    if (message1.length < 10) throw new Error("API Error: Argument must not be above 10 characters for 'elmo'")
-    if (message2.length < 10) throw new Error("API Error: Argument must not be above 10 characters for 'elmo'")
+    if (message1.length > 10) throw new Error("API Error: Argument must not be above 10 characters for 'elmo'")
+    if (message2.length > 10) throw new Error("API Error: Argument must not be above 10 characters for 'elmo'")
 
     let image = `${baseurl}image/elmo?right=${encodeURIComponent(message1)}&left=${encodeURIComponent(message2)}`
 
@@ -43,8 +43,8 @@ module.exports.tradeOffer = async function (message1, message2) {
     if (!message1) throw new Error("API Error: Too few arguments for 'tradeOffer'")
     if (!message2) throw new Error("API Error: Too few arguments for 'tradeOffer'")
 
-    if (message1.length < 10) throw new Error("API Error: Argument must not be above 10 characters for 'tradeOffer'")
-    if (message2.length < 10) throw new Error("API Error: Argument must not be above 10 characters for 'tradeOffer'")
+    if (message1.length > 10) throw new Error("API Error: Argument must not be above 10 characters for 'tradeOffer'")
+    if (message2.length > 10) throw new Error("API Error: Argument must not be above 10 characters for 'tradeOffer'")
 
     let image = `${baseurl}image/tradeoffer?offer1=${encodeURIComponent(message1)}&offer2=${encodeURIComponent(message2)}`
 
