@@ -14,7 +14,7 @@ const happy = require('happy-wrapper')
 
 ## End Points
 
-> All available End Points as of v1.0.0
+> All available End Points as of v1.5.0
 
 ```js
 happy.gay('url')

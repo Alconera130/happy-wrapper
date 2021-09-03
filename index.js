@@ -34,7 +34,7 @@ module.exports.elmo = async function (message1, message2) {
     if (message1.length > 10) throw new Error("API Error: Argument must not be above 10 characters for 'elmo'")
     if (message2.length > 10) throw new Error("API Error: Argument must not be above 10 characters for 'elmo'")
 
-    let image = `${baseurl}image/elmo?right=${encodeURIComponent(message1)}&left=${encodeURIComponent(message2)}`
+    let image = `${baseurl}image/elmo?right=${encodeURIComponent(message2)}&left=${encodeURIComponent(message1)}`
 
     return image
 }
