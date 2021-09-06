@@ -282,10 +282,12 @@ module.exports.weather = async function (state, option) {
     let url = `${baseurl}utility/weather?location=${encodeURIComponent(state)}`
     let res = await fetch(url)
 
+    let msg = option.tosLowerCase()
+
     res = await res.json()
     if (res.error) throw new Error("API Error: Invalid state in 'weather'")
 
-    res = res[option]
+    res = res[msg]
     if (!res) throw new Error("API Error: Invalid option in 'weather'")
 
     return res
@@ -295,10 +297,12 @@ module.exports.lyrics = async function (title, option = 'lyrics') {
     let url = `${baseurl}utility/lyrics?title=${encodeURIComponent(title)}`
     let res = await fetch(url)
 
+    let msg = option.toLowerCase()
+
     res = await res.json()
     if (res.error) throw new Error("API Error: Invalid state in 'weather'")
 
-    res = res[option]
+    res = res[msg]
     if (!res) throw new Error("API Error: Invalid option in 'lyrics'")
 
     return res
@@ -311,4 +315,106 @@ module.exports.randomColor = async function () {
         .then(result =>  res = result)
 
     return res
+}
+
+module.exports.ipLookup = async function (address, option) {
+    if (option.toLowerCase() === 'ip') {
+
+        let url = `${baseurl}utility/ip-lookup?ip=${encodeURIComponent(address)}`
+        let res = await fetch(url)
+
+        res = await res.json()
+        if (res.status) throw new Error("API Error: Invalid IP adress in 'ipLookup'")
+
+        res = res.ip
+
+        return res
+
+    } else if (option.toLowerCase() === 'hostname') {
+        
+        let url = `${baseurl}utility/ip-lookup?ip=${encodeURIComponent(address)}`
+        let res = await fetch(url)
+
+        res = await res.json()
+        if (res.status) throw new Error("API Error: Invalid IP adress in 'ipLookup'")
+
+        res = res.hostname
+
+        return res
+
+    } else if (option.toLowerCase() === 'city') {
+        
+        let url = `${baseurl}utility/ip-lookup?ip=${encodeURIComponent(address)}`
+        let res = await fetch(url)
+
+        res = await res.json()
+        if (res.status) throw new Error("API Error: Invalid IP adress in 'ipLookup'")
+
+        res = res.city
+
+        return res
+
+    } else if (option.toLowerCase() === 'region') {
+        
+        let url = `${baseurl}utility/ip-lookup?ip=${encodeURIComponent(address)}`
+        let res = await fetch(url)
+
+        res = await res.json()
+        if (res.status) throw new Error("API Error: Invalid IP adress in 'ipLookup'")
+
+        res = res.region
+
+        return res
+
+    } else if (option.toLowerCase() === 'country') {
+        
+        let url = `${baseurl}utility/ip-lookup?ip=${encodeURIComponent(address)}`
+        let res = await fetch(url)
+
+        res = await res.json()
+        if (res.status) throw new Error("API Error: Invalid IP adress in 'ipLookup'")
+
+        res = res.country
+
+        return res
+
+    } else if (option.toLowerCase() === 'organization') {
+        
+        let url = `${baseurl}utility/ip-lookup?ip=${encodeURIComponent(address)}`
+        let res = await fetch(url)
+
+        res = await res.json()
+        if (res.status) throw new Error("API Error: Invalid IP adress in 'ipLookup'")
+
+        res = res.organization
+
+        return res
+
+    } else if (option.toLowerCase() === 'postal code') {
+        
+        let url = `${baseurl}utility/ip-lookup?ip=${encodeURIComponent(address)}`
+        let res = await fetch(url)
+
+        res = await res.json()
+        if (res.status) throw new Error("API Error: Invalid IP adress in 'ipLookup'")
+
+        res = res.postal_code
+
+        return res
+
+    } else if (option.toLowerCase() === 'timezone') {
+        
+        let url = `${baseurl}utility/ip-lookup?ip=${encodeURIComponent(address)}`
+        let res = await fetch(url)
+
+        res = await res.json()
+        if (res.status) throw new Error("API Error: Invalid IP adress in 'ipLookup'")
+
+        res = res.timezone
+
+        return res
+
+    } else {
+        throw new Error("API Error: Invaid option in 'ipLookup'")
+    }
 }

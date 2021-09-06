@@ -1,6 +1,6 @@
 {
   "name": "happy-wrapper",
-  "version": "1.5.0",
+  "version": "2.2.0",
   "description": "It'sHappy API Wrapper for Node JS",
   "main": "index.js",
   "scripts": {
