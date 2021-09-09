@@ -1,5 +1,16 @@
 const fetch = require('node-fetch')
+const colors = require('colors')
+
+const { isOnline } = require('./utils.js')
 const baseurl = 'https://api.itshappy.ga/v2/'
+
+isOnline().then(res => {
+    if (res === true) {
+        console.log(`${colors.green('[happy-wrapper]')}: Connected to ${colors.brightBlue('api.itshappy.ga')}`)
+    } else {
+        console.log(`${colors.red('[happy-wrapper]')}: Cant connect to ${colors.grey('api.itshappy.ga')}`)
+    }
+})
 
 module.exports.gay = async function (url) {
     if (!url) throw new Error("API Error: Invalid usage for 'gay'")
@@ -289,6 +300,20 @@ module.exports.weather = async function (state, option) {
 
     res = res[msg]
     if (!res) throw new Error("API Error: Invalid option in 'weather'")
+
+    return res
+}
+
+module.exports.imageSearch = async function (query) {
+    if (!message1) throw new Error("API Error: Too few arguments for 'imageSearch'")
+
+    let url = `${baseurl}utility/image-search?msg=${encodeURIComponent(query)}`
+    let res = await fetch(url)
+
+    res = await res.json()
+    res = res.url
+    
+    if (!res.url) throw new Error("API Error: Couldn't find search qeury")
 
     return res
 }
