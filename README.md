@@ -14,7 +14,7 @@ const happy = require('happy-wrapper')
 
 ## End Points
 
-> All available End Points as of v3.0.0
+> All available End Points as of v4.0.2
 
 ```js
 happy.gay('url')
@@ -35,6 +35,7 @@ happy.morse('option', 'message') //options: encode, decode
 happy.weather('state', 'option') //options: city, region, country, condition, temp. Temp returns json
 happy.imageSearch('query')
 happy.lyrics('title', 'option') //options: id, title, artist, thumbnail, lyrics
+happy.webStatus('web URL', 'option') //options: web url, status, name, message
 happy.randomColor()
 happy.ipLookup('adress', 'option') //options: ip, hostname, city, region, country, organization, postal code, timezone
 ```
@@ -47,7 +48,7 @@ happy.ipLookup('adress', 'option') //options: ip, hostname, city, region, countr
 let buffer /*You can name this whatever you like*/ = happy.lyrics('lovely', 'artist') //As an example
 
 buffer.then(function (data) {
-    return data
+    console.log(data)
 })
 ```
 

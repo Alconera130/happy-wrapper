@@ -313,7 +313,7 @@ module.exports.imageSearch = async function (query) {
     res = await res.json()
     res = res.url
     
-    if (!res.url) throw new Error("API Error: Couldn't find search qeury")
+    if (!res.url) throw new Error("API Error: Couldn't find search query")
 
     return res
 }
@@ -331,6 +331,54 @@ module.exports.lyrics = async function (title, option = 'lyrics') {
     if (!res) throw new Error("API Error: Invalid option in 'lyrics'")
 
     return res
+}
+
+module.exports.webStatus = async function (url, option = 'status') {
+    if (!url) throw new Error("API Error: Too few arguments for 'webStatus'")
+
+    if (option.toLowerCase() === 'web url') {
+
+        let url = `${baseurl}utility/web-status?url=${encodeURIComponent(url)}`
+        res = await fetch(url)
+
+        res = await res.json()
+        res = res.webURL
+
+        return res
+
+    } else if (option.toLowerCase() === 'status') {
+
+        let url = `${baseurl}utility/web-status?url=${encodeURIComponent(url)}`
+        res = await fetch(url)
+
+        res = await res.json()
+        res = res.status
+
+        return res
+
+    } else if (option.toLowerCase() === 'name') {
+
+        let url = `${baseurl}utility/web-status?url=${encodeURIComponent(url)}`
+        res = await fetch(url)
+
+        res = await res.json()
+        res = res.name
+
+        return res
+
+    } else if (option.toLowerCase() === 'message') {
+
+        let url = `${baseurl}utility/web-status?url=${encodeURIComponent(url)}`
+        res = await fetch(url)
+
+        res = await res.json()
+        res = res.message
+
+        return res
+
+    } else {
+        throw new Error("API Error: Invaid option for 'webStatus'")
+    }
 }
 
 module.exports.randomColor = async function () {
